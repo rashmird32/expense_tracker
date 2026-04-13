@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column; /* 🔥 this makes them vertical */
+  gap: 10px;              /* spacing between elements */
+  width: 300px;
+}
