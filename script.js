@@ -1,4 +1,46 @@
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
 let total = 0;
+
+function renderExpenses(){
+// display saved data on page load
+const list = document.getElementById("expenseList");
+list.innerHTML = ""; //clears list
+total = 0;
+
+if (expenses.length === 0) {
+        list.innerHTML = `<p class="empty-msg">No expenses yet 🚀</p>`;
+        document.getElementById("total").textContent = 0;
+        return;
+    }
+
+expenses.forEach((expense,index) => {
+    const li = document.createElement("li");
+    li.innerHTML  = `<div>₹${expense.amount} - ${expense.category}</div>`;
+
+    //add to total
+    total += expense.amount;
+
+    //delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "🗑️";
+    deleteBtn.classList.add("delete-btn");
+
+    deleteBtn.addEventListener("click", function(){
+        expenses.splice(index,1);
+        localStorage.setItem("expenses",JSON.stringify(expenses));
+        renderExpenses();
+    })
+    li.appendChild(deleteBtn);
+    list.appendChild(li);
+})
+
+document.getElementById("total").textContent = total;
+}
+
+
+
+// Add expense
 document.getElementById("addBtn").addEventListener("click", function (event){
     event.preventDefault();
     
@@ -10,32 +52,17 @@ document.getElementById("addBtn").addEventListener("click", function (event){
         return;
     }
 
-    let amountValue = Number(amount);
-    total += amountValue;
+    const newExpense = {
+        amount: Number(amount),
+        category: category
+    };
 
-    document.getElementById("total").textContent = total;
+    expenses.push(newExpense);
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
-    //creates list element
-    const li = document.createElement("li");
-    li.textContent = `$${amount} - ${category}`;
-
-    //add delete button
-    const deletebtn = document.createElement("button");
-    deletebtn.textContent = "❌";
-
-    //delete logic
-    deletebtn.addEventListener("click",function(){
-        li.remove();
-
-        total -= amountValue;
-        document.getElementById("total").textContent = total;
-    })
-
-    li.appendChild(deletebtn);
+    renderExpenses();
+     
     
-    //appends to list
-    document.getElementById("expenseList").appendChild(li);
-
     //clear inputs
     document.getElementById("amount").value = "";
     document.getElementById("category").value;
@@ -43,3 +70,6 @@ document.getElementById("addBtn").addEventListener("click", function (event){
     console.log(amount + " "+ category);
 
 })
+
+// run on page load
+renderExpenses();

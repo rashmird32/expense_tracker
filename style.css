@@ -1,12 +1,195 @@
-.container {
-  display: grid;
-  place-items: center;
-  height: 100vh;
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-form {
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0f172a; /* deep dark blue */
   display: flex;
-  flex-direction: column; /* 🔥 this makes them vertical */
-  gap: 10px;              /* spacing between elements */
-  width: 300px;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #e2e8f0;
+}
+
+.container {
+  width: 360px;
+}
+
+h1 {
+  text-align: center;
+  color: #00ffc8;
+  text-shadow: 
+    0 0 5px #00ffc8,
+    0 0 10px #00ffc8,
+    0 0 20px #00ffc8;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(0, 255, 200, 0.2);
+  border-radius: 15px;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 10px rgba(0, 255, 200, 0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.6);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #00ffc8;
+  background: transparent;
+  color: #e2e8f0;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,255,200,0.3);
+}
+
+input:focus, select:focus {
+  box-shadow: 0 0 10px rgba(0,255,200,0.8);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #00ffc8;
+  color: #0f172a;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffc8;
+  transition: 0.3s;
+}
+
+button:hover {
+  box-shadow: 
+    0 0 15px #00ffc8,
+    0 0 30px #00ffc8;
+  transform: scale(1.05);
+}
+
+h2 {
+  text-align: center;
+  color: #00ffc8;
+  text-shadow: 
+    0 0 5px #00ffc8,
+    0 0 15px #00ffc8;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* li {
+  background: white;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+} */
+
+li {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,200,0.2);
+  margin: 8px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+}
+
+li:hover {
+  box-shadow: 0 0 10px rgba(0,255,200,0.5);
+}
+
+li button {
+  background: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #ff3b3b;
+  color: #ff3b3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 6px #ff3b3b;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ff3b3b;
+  color: white;
+  box-shadow: 0 0 15px #ff0000;
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #00ffc8;
+  background: #0f172a; /* dark background */
+  color: #00ffc8; /* neon text */
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,255,200,0.4);
+  appearance: none; /* removes default arrow styling */
+}
+
+select:focus {
+  box-shadow: 0 0 12px #00ffc8;
+}
+
+option {
+  background: #0f172a;
+  color: #00ffc8;
+}
+
+select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%2300ffc8' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.empty-msg {
+  text-align: center;
+  color: #00ffc8;
+  opacity: 0.7;
+  padding: 10px;
 }

@@ -9,25 +9,33 @@
 <body>
     <section>
         <div class="container">
-            <div class="box">
+            <h2>💰 Expense Tracker</h2>
+            <div class="card">
                 <form action="">
-                    <h2>Expense Tracker</h2>
+                    
                     <input type="number" placeholder="Enter Amount" id="amount">
                     <select name="" id="category">
-                        <option value="food">Food</option>
-                        <option value="transport">Transport</option>
-                        <option value="shopping">Shopping</option>
-                        <option value="bills">Bills</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="health">Health</option>
-                        <option value="other">Other</option>
+                        <option value="food">🍔 Food</option>
+                        <option value="transport">🚗 Transport</option>
+                        <option value="shopping">🛍 Shopping</option>
+                        <option value="bills">📄 Bills</option>
+                        <option value="Entertainment">🎬 Entertainment</option>
+                        <option value="health">💊 Health</option>
+                        <option value="other">📦 Other</option>
                     </select>
-                   <button type="submit" id="addBtn">Add Expenses</button>
+                   <button type="submit" id="addBtn">+Add Expenses</button>
 
-                   <h3>Total: $<span id="total">0</span></h3>
-                    <ul id="expenseList"></ul>
                 </form>
             </div>
+
+            <div class="card">
+                <h2>Total: ₹<span id="total">0</span></h2>
+            </div>
+
+             <div class="card">
+                <ul id="expenseList"></ul>
+            </div>
+
         </div>
     </section>
 </body>
